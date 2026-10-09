@@ -1,0 +1,4687 @@
+{
+  "name": "All-in-all Marketing Automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1824,
+        1936
+      ],
+      "id": "e740a30e-d611-4b7b-b0da-d6ff3b5eb9c2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "content": "# Pre-Update\n## Updated w/ xPM\n## Improve w/ AI",
+        "height": 4624,
+        "width": 8960,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -496,
+        -384
+      ],
+      "typeVersion": 1,
+      "id": "0a185c35-5bb6-4c6a-b129-127ad77cefd5",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# Post-Update\n## Check w/ Alignment\n\n## This section is still under construction, but it's purpose is to grade and make the article \"post ready\"",
+        "height": 2368,
+        "width": 3184,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2064,
+        1760
+      ],
+      "typeVersion": 1,
+      "id": "500dee7d-fc2d-4673-8b8c-3e058e395834",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "# Output",
+        "height": 2496,
+        "width": 5680,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        8816,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "92fc8f6a-b4b8-4367-b9de-6154b651b82a",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# Short Video Generation",
+        "height": 416,
+        "width": 3056,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        10032,
+        2176
+      ],
+      "typeVersion": 1,
+      "id": "ecc9ef00-8d51-4466-a354-196d9095a56e",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"content_id\": \"\",\n  \"source_type\": \"\",\n  \"input_title\": \"\",\n  \"raw_text\": \"\",\n  \"source_url\": \"\",\n  \"file_url\": \"\",\n  \"submitted_by\": \"\",\n  \"desired_outputs\": [],\n  \"target_audiences\": [],\n  \"status\": \"received\",\n  \"created_at\": \"\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1600,
+        1936
+      ],
+      "id": "78d77b2e-2243-47a5-9d69-3bfad6ce2f06",
+      "name": "Create Base Set Variables"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "list",
+          "cachedResultName": "Marketing Workflow Test"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1376,
+        1936
+      ],
+      "id": "9fe2be99-431d-4e66-a4b5-4dc3ae048b98",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3b753a8a-c7ca-4550-99a2-6f43cb67ff84",
+              "leftValue": "={{ $json.property_raw_data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -1152,
+        1936
+      ],
+      "id": "9dc9e41f-b449-43a6-add7-7c481e226f6f",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "content": "# data gatheration\n\n# there will be different ways to attach data here via notion:\n## 1. url\n## 2. file\n## 3. text\n\n## currently there's only via raw text\n",
+        "height": 976,
+        "width": 1440
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1952,
+        1408
+      ],
+      "typeVersion": 1,
+      "id": "1783ba6f-8db3-4e4c-a5b8-bffca74beb88",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "# half of this section will be using the xPM archive to advance the text and the other half will be using AI to advance the text.\n## we will add the section that has to do with the xPM archive later\n\n## you pick how you want to update the text via notion\n",
+        "height": 1136,
+        "width": 2548,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -496,
+        1216
+      ],
+      "typeVersion": 1,
+      "id": "57f8fea1-358c-497a-99cd-a2d2edb7766a",
+      "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  let text = item.json.property_raw_data || '';\n\n  // Turn escaped newlines/tabs into real ones\n  text = text.replace(/\\\\n/g, '\\n');\n  text = text.replace(/\\\\t/g, '\\t');\n\n  // Fix common mojibake / broken UTF-8 characters\n  text = text\n    .replace(/â€™/g, \"'\")\n    .replace(/â€œ/g, '\"')\n    .replace(/â€/g, '\"')\n    .replace(/â€“/g, '–')\n    .replace(/â€”/g, '—')\n    .replace(/â€¦/g, '…')\n    .replace(/Â/g, '');\n\n  // Remove markdown formatting symbols but keep the words\n  text = text\n    .replace(/^#{1,六肖/gm, '')         // remove headings like # ## ###\n    .replace(/\\*\\*(.*?)\\*\\*/g, '$1')     // bold\n    .replace(/\\*(.*?)\\*/g, '$1')         // italics\n    .replace(/`{1,3}/g, '');             // backticks\n\n  // Clean extra spaces/newlines\n  text = text.replace(/\\n{3,}/g, '\\n\\n').trim();\n\n  return {\n    json: {\n      cleaned_text: text\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -928,
+        1936
+      ],
+      "id": "7f970aef-8688-4b07-ad5c-9c28bb13dd99",
+      "name": "Clean Raw Text"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "responses": {
+          "values": [
+            {}
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        1760
+      ],
+      "id": "59099b5c-b63d-4168-ad17-3491017e6ab4",
+      "name": "Message a model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "item",
+        "operation": "get",
+        "site": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_MICROSOFT_SHARE_POINT_ID"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.microsoftSharePoint",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        1712
+      ],
+      "id": "e5ed5a38-58ff-45c9-93ed-e02b492ca2db",
+      "name": "Get an item",
+      "credentials": {
+        "microsoftSharePointOAuth2Api": {
+          "id": "",
+          "name": "YOUR_microsoftSharePointOAuth2Api"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "drive",
+        "operation": "get",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_GOOGLE_DRIVE_ID"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -256,
+        2064
+      ],
+      "id": "bc96a12a-9709-43bb-ae2e-144ea97125d4",
+      "name": "Get shared drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "YOUR_googleDriveOAuth2Api"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "# check-point",
+        "height": 176,
+        "width": 288,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        8496,
+        1440
+      ],
+      "typeVersion": 1,
+      "id": "7b403128-80ab-440f-86b5-4d6719d6a6fb",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "57ccec73-db7f-4627-b24d-6d762aa60e7e",
+              "leftValue": "={{ $('Get many database pages1').item.json.property_update_w_ai }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        528,
+        1936
+      ],
+      "id": "49108563-58cd-4f2a-9844-37082c29139c",
+      "name": "bypass?.2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "57343407-ca89-4bdb-bf3b-eca7688d6760",
+              "leftValue": "={{ $json.confidence }}",
+              "rightValue": "={{ $('Precaution Variables').item.json.min_pass_confidence }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2608,
+        2048
+      ],
+      "id": "9df318b8-a4e4-46f0-9e7d-09edf3c2d24e",
+      "name": "problem?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "57343407-ca89-4bdb-bf3b-eca7688d6760",
+              "leftValue": "={{ $json.confidence }}",
+              "rightValue": "={{ $('Precaution Variables').item.json.min_pass_confidence }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "89756c50-e153-4d87-a962-9a11ac63760d",
+              "leftValue": "={{ $json.can_publish }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2608,
+        2480
+      ],
+      "id": "cfff4d35-f28e-4a9a-a60e-3ec9d896451f",
+      "name": "problem?1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "57343407-ca89-4bdb-bf3b-eca7688d6760",
+              "leftValue": "={{ $json.confidence }}",
+              "rightValue": "={{ $('Precaution Variables').item.json.min_pass_confidence }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2624,
+        2240
+      ],
+      "id": "4edf4d9a-6c4b-4349-894c-d4aaf0a85224",
+      "name": "problem?2"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2976,
+        2048
+      ],
+      "id": "b5347a12-0afb-4563-b943-7bc1c9d05008",
+      "name": "t"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert B2B editor and strategic communicator.\n\nYour task is to transform the input content into the SCQA framework:\n- Situation\n- Complication\n- Question\n- Answer\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Read the full input carefully and identify the core message, problem, stakes, and recommended solution.\n2. Rewrite the content using SCQA structure.\n3. Preserve the original meaning, factual claims, numbers, references, and stakeholder implications.\n4. Do not invent statistics, case studies, or benefits that are not supported by the input.\n5. If the input contains citations, examples, or source references, keep them when useful.\n6. Make the output persuasive, professional, and easy to follow.\n7. If the article is long, synthesize it clearly without becoming shallow.\n8. Emphasize business impact, operational risk, and decision relevance where applicable.\n9. Keep the tone authoritative and insight-driven, not generic.\n10. End with a concise takeaway or action-oriented conclusion.\n11. Target approximately 250 words total for the full output.\n\n\nOUTPUT FORMAT:\n# SCQA VERSION\n\n## Situation\n[Describe the current reality, context, or industry condition.]\n\n## Complication\n[Explain the tension, inefficiency, risk, or hidden problem.]\n\n## Question\n[State the core decision question that naturally emerges.]\n\n## Answer\n[Present the clearest solution, response, or recommendation.]\n\n## Bottom Line\n[2–4 sentence executive takeaway]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6560,
+        432
+      ],
+      "id": "ac3f9888-3a66-47f7-8e63-da919145b754",
+      "name": "SCQA",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert analytical writer.\n\nYour task is to transform the input into a PEEL-based version:\n- Point\n- Evidence\n- Explanation\n- Link\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Identify the main argument of the input.\n2. Rewrite the content so the reasoning is organized through PEEL.\n3. Use strong topic points and support them with evidence from the input.\n4. Preserve all important facts, numbers, examples, and references.\n5. Do not add unsupported claims or outside information.\n6. Where the source contains multiple subarguments, organize them into multiple PEEL sections.\n7. Make the explanation sections interpret the evidence instead of repeating it.\n8. In each section, ensure the “Link” connects the point back to the broader thesis or practical implication.\n9. Keep the tone polished, evidence-based, and suitable for professional readers.\n\nOUTPUT FORMAT:\n# PEEL VERSION\n\n## Main Thesis\n[1 short paragraph]\n\n## PEEL Section 1\n**Point:** ...\n**Evidence:** ...\n**Explanation:** ...\n**Link:** ...\n\n## PEEL Section 2\n**Point:** ...\n**Evidence:** ...\n**Explanation:** ...\n**Link:** ...\n\n## PEEL Section 3\n**Point:** ...\n**Evidence:** ...\n**Explanation:** ...\n**Link:** ...\n\n## Final Takeaway\n[Concise conclusion]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6560,
+        624
+      ],
+      "id": "e28f6f24-c6b9-41fc-9ba2-1fd6cf144c20",
+      "name": "PEEL",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert content strategist.\n\nYour task is to convert the input into the 5W1H framework:\n- Who\n- What\n- When\n- Where\n- Why\n- How\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Extract the most decision-relevant information from the input.\n2. Reorganize the content clearly under the 5W1H structure.\n3. Preserve the meaning, evidence, and stakeholder context of the original.\n4. Keep all critical facts, quantitative details, and cited support if present.\n5. Do not invent missing sections; if something is not clearly supported by the input, say “Not explicitly stated in the source.”\n6. Make the output useful for executives, project teams, or business readers.\n7. Emphasize practical clarity over stylistic flourish.\n8. If the original input includes a recommendation or framework, reflect that in the “How” section.\n9. Target approximately 230 words total for the full output.\n\n\nOUTPUT FORMAT:\n# 5W1H VERSION\n\n## Who\n[Who is affected, involved, responsible, or targeted?]\n\n## What\n[What is happening, what is the issue, or what is being proposed?]\n\n## When\n[When does it occur, when does it matter, or at what stage is it most relevant?]\n\n## Where\n[Where does this issue appear—industry, process, project phase, or operating environment?]\n\n## Why\n[Why does this matter? What are the risks, costs, or strategic implications?]\n\n## How\n[How should it be addressed, implemented, or acted upon?]\n\n## Executive Summary\n[3–5 sentence summary]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6560,
+        880
+      ],
+      "id": "1901f0b9-b8ce-402e-b070-7dca156fe883",
+      "name": "5W1H",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert transformation-based copywriter.\n\nYour task is to rewrite the input using the BAR framework:\n- Before\n- Action\n- Result\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Identify the “before” state described or implied in the source.\n2. Identify the action, intervention, framework, or solution presented.\n3. Identify the result, payoff, improvement, or strategic outcome supported by the source.\n4. Preserve numbers, risks, references, and stakeholder implications.\n5. Do not invent benefits not grounded in the source text.\n6. Make the transformation vivid and practical.\n7. Keep the writing persuasive but still evidence-based.\n8. If the original source focuses heavily on a problem and lightly on a solution, still produce a strong BAR structure while clearly distinguishing between current-state pain and projected improvement.\n9. Target approximately 250 words total for the full output.\n\nOUTPUT FORMAT:\n\n# BAR VERSION\n\n## Before\n[What the audience is dealing with now]\n\n## Action\n[What changes, solution, framework, or intervention is introduced]\n\n## Result\n[What improves, what risk is reduced, what value is created]\n\n## Bottom Line\n[Short summary]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6576,
+        1376
+      ],
+      "id": "1b226956-3398-4e23-9761-939571e65623",
+      "name": "BAR",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const techniques = [\n  \"SCQA\",\n  \"PEEL\",\n  \"SOAR\",\n  \"5W1H\",\n  \"BAR\",\n  \"PAS\",\n  \"Pyramid\",\n  \"PREP\",\n  \"FAB\",\n  \"AIDA\"\n];\n\nreturn items.map(item => {\n  const text =\n    item.json?.output?.[0]?.content?.[0]?.text || \"\";\n\n  const selected = text\n    .split(\",\")\n    .map(t => t.trim());\n\n  const result = {};\n\n  for (const technique of techniques) {\n    result[technique] = selected.includes(technique);\n  }\n\n  return {\n    json: result\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5984,
+        1296
+      ],
+      "id": "18596fac-861e-4c8f-a1ed-42abd657bd4b",
+      "name": "decision making"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert B2B value-messaging writer.\n\nYour task is to transform the input into FAB format:\n- Feature\n- Advantage\n- Benefit\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Read the source and identify the key capabilities, methods, or solution components described.\n2. Translate those into clear Features.\n3. For each Feature, explain the Advantage it creates operationally or strategically.\n4. Then explain the Benefit to the stakeholder in practical business terms.\n5. Preserve factual grounding from the source.\n6. Do not invent product features or business outcomes that are not supported by the content.\n7. If the input is problem-heavy and solution-light, derive FAB only from the solution elements that are actually present.\n8. Emphasize real-world outcomes such as reduced risk, faster approvals, cost savings, improved control, clearer accountability, or stronger performance.\n9. Write in a commercially persuasive but credible tone.\n10. Target approximately 250 words total for the full output.\n\n\nOUTPUT FORMAT:\n# FAB VERSION\n\n## Core Value Proposition\n[1 short paragraph]\n\n## FAB Section 1\n**Feature:** ...\n**Advantage:** ...\n**Benefit:** ...\n\n## FAB Section 2\n**Feature:** ...\n**Advantage:** ...\n**Benefit:** ...\n\n## FAB Section 3\n**Feature:** ...\n**Advantage:** ...\n**Benefit:** ...\n\n## Closing Message\n[Short conclusion]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6592,
+        2416
+      ],
+      "id": "2ed5debd-11e4-421b-94e4-c676f5d76a3c",
+      "name": "FAB",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert structured communicator.\n\nYour task is to transform the input into PREP format:\n- Point\n- Reason\n- Example\n- Point\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Extract the main point of the source.\n2. Support it with the strongest reason from the content.\n3. Use one or more examples, statistics, case references, or scenarios from the source.\n4. End by restating the point more strongly and clearly.\n5. Preserve accuracy, evidence, and nuance.\n6. Do not introduce unsupported examples.\n7. Keep the flow concise, persuasive, and presentation-ready.\n8. The output should sound like a clear argument that can be used in speeches, presentations, posts, or sales messaging.\n\nOUTPUT FORMAT:\n# PREP VERSION\n\n## Point\n[Main claim]\n\n## Reason\n[Why it is true / why it matters]\n\n## Example\n[Concrete source-supported example(s), numbers, or scenario]\n\n## Point Restated\n[Stronger concluding version of the point]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6576,
+        2208
+      ],
+      "id": "2de28c80-4621-44bf-82b4-7288bcc10b0d",
+      "name": "PREP",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert executive communications writer.\n\nYour task is to rewrite the input using the Pyramid Principle:\n- Lead with the conclusion\n- Then support it with grouped logic\n- Then provide evidence/details\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Identify the single most important conclusion in the source.\n2. Open with that conclusion immediately.\n3. Group supporting ideas into 3–5 logical buckets.\n4. Under each bucket, provide the strongest supporting details from the source.\n5. Preserve factual accuracy, citations, and stakeholder relevance.\n6. Do not bury the lead.\n7. Write in a sharp, strategic, executive-ready style.\n8. Avoid repetition and keep the logic clean.\n9. If the input contains many details, synthesize them into decision-useful structure instead of repeating everything.\n10. Target approximately 250 words total for the full output.\n\n\nOUTPUT FORMAT:\n# PYRAMID PRINCIPLE VERSION\n\n## Executive Conclusion\n[State the core conclusion first]\n\n## Supporting Argument 1\n[Main logic]\n- [Supporting proof/detail]\n- [Supporting proof/detail]\n\n## Supporting Argument 2\n[Main logic]\n- [Supporting proof/detail]\n- [Supporting proof/detail]\n\n## Supporting Argument 3\n[Main logic]\n- [Supporting proof/detail]\n- [Supporting proof/detail]\n\n## Implication\n[What decision-makers should do with this]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6576,
+        1952
+      ],
+      "id": "b914a68e-6df0-4f2f-b1c0-5812f1f9d82f",
+      "name": "Pyramid",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert persuasive writer.\n\nYour task is to rewrite the input using PAS:\n- Problem\n- Agitation\n- Solution\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Identify the central problem in the source.\n2. Intensify the consequences of that problem using only source-supported facts, risks, and implications.\n3. Present the solution clearly and credibly.\n4. Preserve the source’s statistics, examples, and supporting logic.\n5. Do not exaggerate beyond what the source reasonably supports.\n6. Keep the agitation section vivid, specific, and business-relevant.\n7. Make the solution section practical, confident, and focused on value.\n8. End with a concise action-oriented takeaway.\n9. Target approximately 250 words total for the full output.\n\n\nOUTPUT FORMAT:\n# PAS VERSION\n\n## Problem\n[State the core issue clearly]\n\n## Agitation\n[Expand the consequences, urgency, and downstream damage]\n\n## Solution\n[Present the recommended fix, approach, or system]\n\n## Final Takeaway\n[2–4 sentence summary]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6576,
+        1680
+      ],
+      "id": "a819ee9d-3bde-4ab4-b88c-4f99acc341a2",
+      "name": "PAS",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.output[0].content[0].text }}",
+        "shareMediaCategory": "IMAGE",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [
+        13552,
+        944
+      ],
+      "id": "546f541a-11bc-47ae-9cc4-dde9852afc2e",
+      "name": "Create a post"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "list",
+          "cachedResultName": "Marketing Workflow Test"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -704,
+        1936
+      ],
+      "id": "381a8dc4-54db-481e-94db-1aab3aa7cd56",
+      "name": "Get many database pages1",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c96dbff3-d69d-4025-92cb-693749a2dcb2",
+              "leftValue": "={{ $json.property_update_w_archive }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -480,
+        1936
+      ],
+      "id": "4d752714-94d4-4ca7-afb8-a4827ce8df31",
+      "name": "Archive?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        1712
+      ],
+      "id": "80551f44-bcdc-4bd2-ab1e-b938cc7d2c4b",
+      "name": "Clean Data",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const text =\n    item.json?.content?.[0]?.text ||\n    '';\n\n  let cleaned = String(text)\n    .replace(/\\r/g, '')\n    .replace(/[ \\t]+\\n/g, '\\n')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .replace(/[ \\t]{2,}/g, ' ')\n    .trim();\n\n  return {\n    json: {\n      formatted_text: cleaned\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1008,
+        1696
+      ],
+      "id": "b4ee4d81-06ad-4f91-9705-2ed7a84251d3",
+      "name": "Clean AI Output"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-sonnet-4-6",
+          "mode": "list",
+          "cachedResultName": "claude-sonnet-4-6"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a senior editor, research writer, and subject-matter analyst.\n\nYour task is to refine, strengthen, and improve the article provided below.\n\nThe goal is to produce a version that is clearer, more credible, better structured, and more insightful than the original while preserving the author’s intent.\n\nEditing Objectives\n\n1. Improve clarity and readability.\n   - Rewrite sentences that are confusing, awkward, or overly complex.\n   - Ensure each idea is expressed clearly and precisely.\n\n2. Strengthen structure and flow.\n   - Improve logical organization between paragraphs and sections.\n   - Add transitions where necessary so the article reads smoothly.\n\n3. Remove redundancy and weak phrasing.\n   - Eliminate repetitive or unnecessary sentences.\n   - Condense sections that repeat the same idea without adding value.\n\n4. Expand where needed.\n   - If an explanation is incomplete or vague, expand it with additional reasoning or context.~\n   - Add clarifying details that make the argument stronger and easier to understand.\n\n5. Improve credibility and authority.\n   - Strengthen claims with logical explanation or contextual reasoning when possible.\n   - Maintain a professional, analytical tone appropriate for expert readers.\n\n6. Preserve the core ideas.\n   - Do NOT change the meaning, argument, or key conclusions of the article.\n   - The refined version must remain faithful to the original intent.\n\n7. Maintain content depth.\n   - Do not summarize the article.\n   - Do not significantly shorten the content unless removing redundancy.\n\nWriting Style Requirements\n\n- Professional and authoritative\n- Clear and well-structured\n- Insightful and analytical\n- Natural and readable\n- Free of repetition and filler\n\nOutput Requirements\n\n- Return the fully refined article.\n- Preserve headings and overall structure when useful, but improve them if necessary.\n- Do not include commentary, notes, or explanations.\n- Do not mention the editing process.\n- Output only the improved article text.\n\nInput Article:\n{{ $json.property_raw_data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1696
+      ],
+      "id": "706c99ab-92c4-45b8-a475-636ebcd5f5cd",
+      "name": "Message a model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "",
+          "name": "YOUR_anthropicApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a brand and strategic-alignment grader for xPM.\n\nYour job is to determine whether the article below is aligned with xPM’s published vision, philosophy, and service positioning.\n\nEvaluate the article against this xPM alignment framework:\n\nxPM alignment criteria:\n1. Control-first thinking, not reporting theater\n2. Governance, decision architecture, and integrated controls before execution\n3. Clear linkage across cost, schedule, risk, progress, contract logic, and knowledge\n4. AI and BI used as decision intelligence, not hype or replacement for human judgment\n5. Clarity, control, predictive insight, and confident delivery\n6. Trust, transparency, accountability, and early risk visibility\n7. Full-lifecycle thinking: pre-construction, construction, post-construction\n8. Professional, executive, construction-literate tone\n9. Owner/investor and stakeholder decision value, not generic tech fluff\n10. Practical construction logic over vague innovation language\n\nMisalignment indicators:\n- Empty hype about AI with no decision or governance value\n- Dashboard/reporting language without control logic\n- Generic marketing language not grounded in construction reality\n- Content that suggests AI replaces people rather than strengthening judgment\n- Messaging that conflicts with trust, transparency, accountability, or early-warning principles\n- Messaging disconnected from owners, investors, contractors, PM teams, and real project outcomes\n\nDecision standard:\n- PASS only if the article is clearly aligned with xPM’s strategic identity and can reasonably represent the brand.\n- FAIL if the article is generic, off-brand, hype-heavy, operationally shallow, or contrary to xPM’s philosophy.\n- Be strict. Brand fit must be clear.\n\nOutput:\nReturn valid JSON only, with this exact schema:\n{\n  \"gate\": \"xpm_vision\",\n  \"decision\": \"PASS or FAIL\",\n  \"can_publish\": true,\n  \"confidence\": 0.00,\n  \"score\": 0,\n  \"severity\": \"none|low|medium|high|critical\",\n  \"summary\": \"\",\n  \"issues_found\": true,\n  \"issue_count\": 0,\n  \"issues\": [\n    {\n      \"type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem\": \"\",\n      \"why_it_matters\": \"\",\n      \"recommended_fix\": \"\"\n    }\n  ],\n  \"required_fixes\": [\"\"],\n  \"line_flags\": [\n    {\n      \"section\": \"\",\n      \"snippet\": \"\",\n      \"issue_type\": \"\"\n    }\n  ],\n  \"reason_codes\": [\"\"],\n  \"review_notes\": \"\"\n}\n\nSpecial instructions for reason codes:\nUse codes like:\n- OFF_BRAND_GENERIC\n- AI_HYPE_NO_CONTROL_LOGIC\n- NO_GOVERNANCE_FRAME\n- NO_DECISION_INTELLIGENCE\n- WEAK_CONSTRUCTION_LOGIC\n- NO_OWNER_VALUE\n- MISALIGNED_TONE\n- STRONG_XPM_ALIGNMENT\n\nPrecaution variables:\n- strict_mode: {{ $json.strict_mode }}\n- vision_mode: {{ $json.vision_mode }}\n- max_issues_to_return: {{ $json.max_issues_to_return }}\n- min_pass_confidence: {{ $json.min_pass_confidence }}\n\nBrand reference:\nxPM is a construction project management and AI-enabled decision-intelligence company focused on clarity, control, predictive insight, governance, integrated controls, trust, accountability, and full-lifecycle project management. AI should strengthen management judgment, not replace people.\n\nArticle title:\n{{ $json.article_title }}\n\nArticle text:\n{{ $json.article_text }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2080,
+        2032
+      ],
+      "id": "f252ae93-a7a5-48e4-99ce-fe786e2f95cd",
+      "name": "Brand & Vision1",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an ethics review grader for B2B thought-leadership and construction-industry content.\n\nYour job is to determine whether the article below is ethically acceptable to publish.\n\nYou must evaluate the article using these ethics criteria:\n1. Honesty and non-deception\n2. Harm avoidance\n3. Fairness and harmful-bias avoidance\n4. Respectful treatment of people, groups, and stakeholders\n5. Transparency of claims, certainty, and limitations\n6. No manipulative fearmongering, fabricated authority, or misleading framing\n7. No disguised plagiarism, false attribution, or pretending borrowed ideas are original\n8. Professional integrity for business publishing\n\nDecision standard:\n- PASS only if the article is ethically acceptable for professional publication with no material ethical concerns.\n- FAIL if there are meaningful ethical concerns, misleading framing, harmful stereotyping, manipulative tactics, fabricated certainty, or other integrity issues.\n- Be strict. If a major ethical concern exists, FAIL.\n\nImportant behavior rules:\n- Do not rewrite the article.\n- Do not summarize the article except briefly in the summary field.\n- Focus on publication ethics, not personal morality.\n- If the article includes claims that sound too certain, too inflated, or potentially misleading, flag them.\n- If the article uses emotionally manipulative, fear-driven, or reputationally risky language, flag it.\n- If the article appears to overstate evidence, flag it.\n- If the article is ethically sound, return PASS with empty issue arrays.\n\nOutput:\nReturn valid JSON only, with this exact schema:\n{\n  \"gate\": \"ethics\",\n  \"decision\": \"PASS or FAIL\",\n  \"can_publish\": true,\n  \"confidence\": 0.00,\n  \"score\": 0,\n  \"severity\": \"none|low|medium|high|critical\",\n  \"summary\": \"\",\n  \"issues_found\": true,\n  \"issue_count\": 0,\n  \"issues\": [\n    {\n      \"type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem\": \"\",\n      \"why_it_matters\": \"\",\n      \"recommended_fix\": \"\"\n    }\n  ],\n  \"required_fixes\": [\"\"],\n  \"line_flags\": [\n    {\n      \"section\": \"\",\n      \"snippet\": \"\",\n      \"issue_type\": \"\"\n    }\n  ],\n  \"reason_codes\": [\"\"],\n  \"review_notes\": \"\"\n}\n\nPrecaution variables:\n- strict_mode: {{ $json.strict_mode }}\n- max_issues_to_return: {{ $json.max_issues_to_return }}\n- min_pass_confidence: {{ $json.min_pass_confidence }}\n\nArticle title:\n{{ $json.article_title }}\n\nArticle text:\n{{ $json.article_text }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2080,
+        2240
+      ],
+      "id": "4bb5fec9-d3f3-47d0-9116-f97cd10bfe47",
+      "name": "Ethical",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a legal-risk screening grader focused on publication safety, with special attention to copyright risk.\n\nYour job is to determine whether the article below is legally acceptable to publish from a practical content-operations perspective.\n\nPrimary focus:\n1. Copyright infringement risk\n2. Excessive copying or close paraphrasing risk\n3. Unattributed borrowed structure, language, or proprietary framing\n4. Long quotations or reproduced material risk\n5. Derivative-work risk\n6. Trademark or brand misuse if obvious\n7. Defamation-style factual accusation risk if obvious\n8. Misleading legal claims about rights, ownership, or permission\n\nImportant legal framing:\n- This is a risk-screening task, not formal legal advice.\n- Use a conservative standard.\n- If the article appears to copy protected expression too closely, FAIL.\n- If fair use would be uncertain or highly fact-dependent, treat that as elevated risk and explain it.\n- Distinguish ideas/facts from protected expression. Facts and general ideas are less risky than copied wording or distinctive expression.\n- Flag any section that appears too close to source-like wording, extended quotation, or proprietary phrasing.\n\nDecision standard:\n- PASS only if the article appears legally publishable with low practical copyright risk.\n- FAIL if there is meaningful legal uncertainty, likely infringement risk, unattributed copying risk, or other serious publishing risk.\n- Be conservative. If unsure and the risk is material, FAIL.\n\nOutput:\nReturn valid JSON only, with this exact schema:\n{\n  \"gate\": \"legal\",\n  \"decision\": \"PASS or FAIL\",\n  \"can_publish\": true,\n  \"confidence\": 0.00,\n  \"score\": 0,\n  \"severity\": \"none|low|medium|high|critical\",\n  \"summary\": \"\",\n  \"issues_found\": true,\n  \"issue_count\": 0,\n  \"issues\": [\n    {\n      \"type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem\": \"\",\n      \"why_it_matters\": \"\",\n      \"recommended_fix\": \"\"\n    }\n  ],\n  \"required_fixes\": [\"\"],\n  \"line_flags\": [\n    {\n      \"section\": \"\",\n      \"snippet\": \"\",\n      \"issue_type\": \"\"\n    }\n  ],\n  \"reason_codes\": [\"\"],\n  \"review_notes\": \"\"\n}\n\nSpecial instructions for reason codes:\nUse codes like:\n- COPYRIGHT_CLOSE_PARAPHRASE\n- COPYRIGHT_EXCESSIVE_QUOTATION\n- COPYRIGHT_DERIVATIVE_RISK\n- ATTRIBUTION_GAP\n- TRADEMARK_MISUSE\n- DEFAMATION_RISK\n- LEGAL_CLAIM_OVERSTATEMENT\n- LOW_RISK_PASS\n\nPrecaution variables:\n- strict_mode: {{ $json.strict_mode }}\n- copyright_mode: {{ $json.copyright_mode }}\n- max_issues_to_return: {{ $json.max_issues_to_return }}\n- min_pass_confidence: {{ $json.min_pass_confidence }}\n\nArticle title:\n{{ $json.article_title }}\n\nArticle text:\n{{ $json.article_text }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2080,
+        2480
+      ],
+      "id": "e84c3df4-83bf-4acd-aaca-b5d1ab2bdd69",
+      "name": "Legal",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $('Merge4').all().map(item => {\n  const articleTitle =\n    item?.json?.content_title ||\n    item?.json?.property_title ||\n    item?.json?.name ||\n    \"\";\n\n  const articleText =\n    item?.json?.formatted_text ||\n    item?.json?.property_raw_data ||\n    item?.json?.updated_article ||\n    item?.json?.refined_article ||\n    \"\";\n\n  return {\n    json: {\n      article_title: articleTitle,\n      article_text: articleText,\n      brand_name: \"xPM\",\n      brand_domain: \"xpmsolution.com\",\n      strict_mode: true,\n      max_issues_to_return: 8,\n      min_pass_confidence: 0.75,\n      copyright_mode: \"conservative\",\n      ethics_mode: \"professional_b2b\",\n      vision_mode: \"control_first_construction_intelligence\"\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1824,
+        1904
+      ],
+      "id": "2dc6d769-c199-4617-a364-eabb73b9e1e8",
+      "name": "Precaution Variables"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = [];\n\nfor (const item of items) {\n  output.push({\n    json: {\n      ...item.json\n    }\n  });\n}\n\nreturn output;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        1904
+      ],
+      "id": "76a5dee9-ad69-4cc8-bd2f-bd24b89313ef",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  // Drill into the nested OpenAI response structure\n  const output = item.json.output?.[0];\n  const text = output?.content?.[0]?.text || \"\";\n\n  // Strip markdown code fences\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n\n  try {\n    const parsed = JSON.parse(clean);\n    return { json: parsed };\n  } catch (e) {\n    return {\n      json: {\n        error: \"JSON parse failed\",\n        raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        2240
+      ],
+      "id": "f18ce881-6e13-4b18-aecd-e3f49465cf36",
+      "name": "clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  // Drill into the nested OpenAI response structure\n  const output = item.json.output?.[0];\n  const text = output?.content?.[0]?.text || \"\";\n\n  // Strip markdown code fences\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n\n  try {\n    const parsed = JSON.parse(clean);\n    return { json: parsed };\n  } catch (e) {\n    return {\n      json: {\n        error: \"JSON parse failed\",\n        raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        2032
+      ],
+      "id": "09e2cc9d-e543-4689-bc85-7f1c5f92c6f8",
+      "name": "clean1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  // Drill into the nested OpenAI response structure\n  const output = item.json.output?.[0];\n  const text = output?.content?.[0]?.text || \"\";\n\n  // Strip markdown code fences\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n\n  try {\n    const parsed = JSON.parse(clean);\n    return { json: parsed };\n  } catch (e) {\n    return {\n      json: {\n        error: \"JSON parse failed\",\n        raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        2480
+      ],
+      "id": "891d4033-2816-4d26-9804-5ffdb59a2da3",
+      "name": "clean2"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a brand alignment investigator for xPM.\n\nA brand review system has already evaluated an article and produced complaints explaining why the article failed the brand / vision alignment gate.\n\nYour job is NOT to re-grade the article and NOT to rewrite the article.\n\nYour job is to investigate the complaints and determine exactly where the branding or vision alignment issues occur in the article and what revisions must be made.\n\n--------------------------------------------------\n\nBRAND COMPLAINT REPORT\n\n{{ JSON.stringify($json, null, 2) }}\n\n--------------------------------------------------\n\nARTICLE TO INVESTIGATE\n\n{{ $('Merge4').item.json.property_raw_data }}\n\n--------------------------------------------------\n\nYOUR TASK\n\nThe brand report lists complaints explaining why the article failed.\n\nFor each complaint listed in the \"issues\" array:\n\n1. Understand the branding or vision issue being raised.\n2. Locate where that issue appears in the article.\n3. Confirm the exact passage where the issue occurs.\n4. Explain why that passage conflicts with xPM’s positioning or messaging.\n5. Provide precise instructions describing how the article should be revised.\n\nUse the following fields from the complaint report as guidance:\n\n- issues\n- line_flags\n- required_fixes\n- reason_codes\n\nTrust the complaint report — the issues have already been identified.\n\nYour job is to interpret and locate them in the article.\n\n--------------------------------------------------\n\nxPM BRAND PRINCIPLES\n\nThe article should align with these xPM principles:\n\n• Control-first project thinking  \n• Governance and decision architecture  \n• Integrated controls across cost, schedule, and risk  \n• Practical construction intelligence  \n• Clarity, accountability, and early risk visibility  \n• AI used as decision support, not hype  \n• Messaging relevant to owners, investors, contractors, and project leaders  \n• Professional, analytical tone suitable for executive audiences  \n\n--------------------------------------------------\n\nRULES\n\n• Do NOT rewrite the article  \n• Do NOT modify the article  \n• Do NOT summarize the article  \n• Only identify problems and provide revision instructions  \n\nIf similar branding issues appear elsewhere in the article, include them as well.\n\n--------------------------------------------------\n\nOUTPUT FORMAT\n\nReturn JSON only.\n\n{\n  \"gate\": \"branding\",\n  \"revision_required\": true,\n  \"complaint_count\": {{ $json.issue_count }},\n  \"resolved_issues\": [\n    {\n      \"issue_type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem_location\": \"\",\n      \"snippet\": \"\",\n      \"complaint_reason\": \"\",\n      \"why_this_conflicts_with_brand\": \"\",\n      \"revision_instruction\": \"\"\n    }\n  ],\n  \"global_revision_guidance\": [\n    \"overall guidance for aligning the article with xPM branding\"\n  ]\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        3072,
+        2304
+      ],
+      "id": "71b0ca95-c5b4-4e81-a6b1-612f761c9c56",
+      "name": "Brand & Vision Revision",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an ethics review investigator.\n\nAn ethics review system has already evaluated an article and produced complaints explaining why the article failed the ethics gate.\n\nYour job is NOT to re-grade the article and NOT to rewrite the article.\n\nYour job is to investigate the complaints and determine exactly where the ethical issues occur in the article and what revisions must be made.\n\n--------------------------------------------------\n\nETHICAL COMPLAINT REPORT\n\n{{ JSON.stringify($json, null, 2) }}\n\n--------------------------------------------------\n\nARTICLE TO INVESTIGATE\n\n{{ $('Merge4').item.json.property_raw_data }}\n\n--------------------------------------------------\n\nYOUR TASK\n\nThe ethics report lists complaints explaining why the article failed.\n\nFor each complaint listed in the \"issues\" array:\n\n1. Understand the ethical issue being raised.\n2. Locate where that issue appears in the article.\n3. Confirm the exact passage where the issue occurs.\n4. Explain why that passage creates an ethical concern.\n5. Provide precise instructions describing how the article should be revised.\n\nUse the following fields from the complaint report as guidance:\n\n- issues\n- line_flags\n- required_fixes\n- reason_codes\n\nTrust the complaint report — the issues have already been identified.\n\nYour job is to interpret and locate them in the article.\n\n--------------------------------------------------\n\nRULES\n\n• Do NOT rewrite the article  \n• Do NOT modify the article  \n• Do NOT summarize the article  \n• Only identify problems and provide revision instructions  \n\nIf similar ethical issues appear elsewhere in the article, include them as well.\n\n--------------------------------------------------\n\nOUTPUT FORMAT\n\nReturn JSON only.\n\n{\n  \"gate\": \"ethics\",\n  \"revision_required\": true,\n  \"complaint_count\": {{ $json.issue_count }},\n  \"resolved_issues\": [\n    {\n      \"issue_type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem_location\": \"\",\n      \"snippet\": \"\",\n      \"complaint_reason\": \"\",\n      \"why_this_is_an_issue\": \"\",\n      \"revision_instruction\": \"\"\n    }\n  ],\n  \"global_revision_guidance\": [\n    \"overall guidance for ethically revising the article\"\n  ]\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        3072,
+        2560
+      ],
+      "id": "35c39d85-6cba-4f67-8ac3-44381160ed82",
+      "name": "Ethical Revision",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a legal review investigator.\n\nA legal review system has already evaluated an article and produced complaints explaining why the article failed the legal gate.\n\nYour job is NOT to re-grade the article and NOT to rewrite the article.\n\nYour job is to investigate the complaints and determine exactly where the problems occur in the article and what revisions must be made.\n\n--------------------------------------------------\n\nLEGAL COMPLAINT REPORT\n\n{{ JSON.stringify($json, null, 2) }}\n\n--------------------------------------------------\n\nARTICLE TO INVESTIGATE\n\n{{ $('Merge4').item.json.property_raw_data }}\n\n--------------------------------------------------\n\nYOUR TASK\n\nThe legal report lists complaints explaining why the article failed.\n\nFor each complaint listed in the \"issues\" array:\n\n1. Understand the issue being raised.\n2. Locate where that issue appears in the article.\n3. Confirm the exact passage where the problem occurs.\n4. Explain why that passage causes the legal concern.\n5. Provide precise instructions describing how the article should be revised.\n\nUse the following fields from the complaint report as guidance:\n\n- issues\n- line_flags\n- required_fixes\n- reason_codes\n\nTrust the complaint report — the issues have already been identified.\n\nYour job is to interpret and locate them in the article.\n\n--------------------------------------------------\n\nRULES\n\n• Do NOT rewrite the article  \n• Do NOT modify the article  \n• Do NOT summarize the article  \n• Only identify problems and provide revision instructions  \n\nIf similar issues appear elsewhere in the article, include them.\n\n--------------------------------------------------\n\nOUTPUT FORMAT\n\nReturn JSON only.\n\n{\n  \"gate\": \"legal\",\n  \"revision_required\": true,\n  \"complaint_count\": {{ $json.issue_count }},\n  \"resolved_issues\": [\n    {\n      \"issue_type\": \"\",\n      \"severity\": \"\",\n      \"section\": \"\",\n      \"problem_location\": \"\",\n      \"snippet\": \"\",\n      \"complaint_reason\": \"\",\n      \"why_this_is_a_problem\": \"\",\n      \"revision_instruction\": \"\"\n    }\n  ],\n  \"global_revision_guidance\": [\n    \"overall instruction for revising the article\"\n  ]\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        3072,
+        2816
+      ],
+      "id": "acb3cdba-004c-4378-a0f9-59d7aeeb14dd",
+      "name": "Legal Revision",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const root = Array.isArray(item.json) ? item.json[0] : item.json;\n  const text = root?.output?.[0]?.content?.[0]?.text || \"\";\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n  try {\n    const parsed = JSON.parse(clean);\n    \n    return {\n      json: {\n        vision_gate: parsed.gate,\n        vision_revision_required: parsed.revision_required,\n        vision_complaint_count: parsed.complaint_count,\n        vision_resolved_issues: parsed.resolved_issues,\n        vision_global_revision_guidance: parsed.global_revision_guidance\n      }\n    };\n  } catch (e) {\n    return {\n      json: {\n        vision_error: \"JSON parse failed\",\n        vision_raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3408,
+        2384
+      ],
+      "id": "d32649f8-17c6-4e19-9886-7966504a8979",
+      "name": "clean3"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const root = Array.isArray(item.json) ? item.json[0] : item.json;\n  const text = root?.output?.[0]?.content?.[0]?.text || \"\";\n\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n\n  try {\n    const parsed = JSON.parse(clean);\n    \n    return {\n      json: {\n        ethics_gate: parsed.gate,\n        ethics_revision_required: parsed.revision_required,\n        ethics_complaint_count: parsed.complaint_count,\n        ethics_resolved_issues: parsed.resolved_issues,\n        ethics_global_revision_guidance: parsed.global_revision_guidance\n      }\n    };\n  } catch (e) {\n    return {\n      json: {\n        ethics_error: \"JSON parse failed\",\n        ethics_raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3408,
+        2624
+      ],
+      "id": "86cbbafd-6318-4d10-8f71-2370aab9eabc",
+      "name": "clean4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const root = Array.isArray(item.json) ? item.json[0] : item.json;\n  const text = root?.output?.[0]?.content?.[0]?.text || \"\";\n\n  const clean = text.replace(/^```(?:json)?\\s*/i, \"\").replace(/\\s*```\\s*$/i, \"\").trim();\n\n  try {\n    const parsed = JSON.parse(clean);\n    \n    return {\n      json: {\n        legal_gate: parsed.gate,\n        legal_revision_required: parsed.revision_required,\n        legal_complaint_count: parsed.complaint_count,\n        legal_resolved_issues: parsed.resolved_issues,\n        legal_global_revision_guidance: parsed.global_revision_guidance\n      }\n    };\n  } catch (e) {\n    return {\n      json: {\n        legal_error: \"JSON parse failed\",\n        legal_raw: clean\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3392,
+        2880
+      ],
+      "id": "67a24da2-2378-451a-8f5f-1d2cd48b388b",
+      "name": "clean5"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a senior editorial revision engine.\n\nYour job is to revise an article using a structured revision report.\n\nThe revision report contains multiple categories (such as legal, ethics, vision, etc.) stored inside a **revisions array**.  \nEach category may contain identified issues and revision guidance.\n\nYour task is to revise the article so that all issues from all categories that require revision are corrected in a single coherent pass.\n\n--------------------------------------------------\n\nREVISION REPORT\n\n{{ JSON.stringify($json.revisions, null, 2) }}\n\n--------------------------------------------------\n\nARTICLE TO REVISE\n\n{{ $('Merge4').item.json.property_raw_data }}\n\n--------------------------------------------------\n\nYOUR TASK\n\nThe revision report contains multiple entries inside the **revisions array**.\n\nEach entry has the following fields:\n\n- type\n- revision_required\n- resolved_issues\n- global_revision_guidance\n\nFollow these steps:\n\n1. Iterate through each item in the revisions array.\n2. If **revision_required = false**, ignore that category.\n3. If **revision_required = true**, apply the revision instructions.\n\nFor each issue inside **resolved_issues**:\n\n• Locate the section referenced in **problem_location**  \n• Identify the passage related to the **snippet**  \n• Understand the complaint explanation  \n• Apply the **revision_instruction** to fix the issue  \n\nIf the snippet cannot be located exactly, revise the closest related passage in that section.\n\n--------------------------------------------------\n\nREVISION PRINCIPLES\n\nFollow these rules carefully:\n\n• Preserve the article’s meaning, insights, and argument.\n• Keep section headings and article structure intact.\n• Modify only where needed, unless broader revision improves clarity.\n• Ensure rewritten language is clearly original.\n• Integrate attribution naturally when research is referenced.\n• Replace excessive quotation with original explanation.\n• Reframe overstated claims into evidence-based observations.\n\n--------------------------------------------------\n\nGLOBAL GUIDANCE\n\nEach revision category may include **global_revision_guidance**.\n\nApply this guidance across the article where relevant.\n\nExamples include:\n\n• improving attribution clarity  \n• strengthening original analysis  \n• reducing paraphrasing risk  \n• reinforcing claims with better evidence  \n\n--------------------------------------------------\n\nPATTERN DETECTION RULE\n\nIf the same issue pattern appears elsewhere in the article but was not explicitly listed, fix those areas as well.\n\nExamples include:\n\n• repeated close paraphrasing  \n• repeated weak attribution  \n• repeated exaggerated claims  \n• repeated quotation-heavy passages  \n\n--------------------------------------------------\n\nFINAL QUALITY STANDARD\n\nThe final article must:\n\n• read naturally from beginning to end  \n• resolve all identified issues  \n• maintain professional tone and clarity  \n• preserve the article’s analytical depth  \n• avoid sounding mechanically patched  \n\n--------------------------------------------------\n\nOUTPUT REQUIREMENTS\n\nReturn only the revised article text.\n\nDo not return JSON.\nDo not return commentary.\nDo not explain the revisions.\nDo not list the changes.\n\nOnly output the final revised article."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        4896,
+        3744
+      ],
+      "id": "7d563182-6243-404c-a8a3-46b81cac3873",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const all = $input.all().map(i => i.json);\n\nfunction pick(prefix) {\n  const found = all.find(item =>\n    item[`${prefix}_gate`] !== undefined ||\n    item[`${prefix}_revision_required`] !== undefined ||\n    item[`${prefix}_complaint_count`] !== undefined ||\n    item[`${prefix}_resolved_issues`] !== undefined ||\n    item[`${prefix}_global_revision_guidance`] !== undefined\n  );\n\n  return {\n    type: prefix,\n    gate: found?.[`${prefix}_gate`] ?? null,\n    revision_required: found?.[`${prefix}_revision_required`] ?? false,\n    complaint_count: found?.[`${prefix}_complaint_count`] ?? 0,\n    resolved_issues: found?.[`${prefix}_resolved_issues`] ?? [],\n    global_revision_guidance: found?.[`${prefix}_global_revision_guidance`] ?? []\n  };\n}\n\nreturn [\n  {\n    json: {\n      revision_summary: {\n        ethics: pick('ethics'),\n        legal: pick('legal'),\n        vision: pick('vision')\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3888,
+        3072
+      ],
+      "id": "ebd039eb-873b-4164-939b-016dea880be7",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "list",
+          "cachedResultName": "main revisions"
+        },
+        "title": "=rev. {{ $('Merge4').item.json.name }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1504,
+        1904
+      ],
+      "id": "5db6257a-2c86-411d-876c-7a7346f93c61",
+      "name": "Create a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        4336,
+        2960
+      ],
+      "id": "5ea5c514-5596-4f9f-9311-3442ddd2eeb1",
+      "name": "Update a database page1",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "592260de-8721-4aa8-a465-54cfc88d7434",
+              "leftValue": "={{ $json.revision_summary.ethics.revision_required }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4080,
+        2976
+      ],
+      "id": "1fa4bb70-f79a-4980-b894-0462fcd1636f",
+      "name": "ethics revision"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "592260de-8721-4aa8-a465-54cfc88d7434",
+              "leftValue": "={{ $json.revision_summary.legal.revision_required }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4096,
+        3328
+      ],
+      "id": "6d7429f2-fd1b-46ac-a4f3-67459e32034e",
+      "name": "legal revision"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "592260de-8721-4aa8-a465-54cfc88d7434",
+              "leftValue": "={{ $json.revision_summary.vision.revision_required }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4096,
+        3648
+      ],
+      "id": "eb45dbd3-ffaf-4ab0-ae23-e8a1dd1a4b4b",
+      "name": "vision revision"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4320,
+        3136
+      ],
+      "id": "45a16c70-8d9f-4857-ac10-85aff9137153",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4304,
+        3424
+      ],
+      "id": "44e9b228-0d92-495c-8b9e-1e9aa9f7a0cc",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4320,
+        3824
+      ],
+      "id": "84e6c31d-9352-4645-9d18-9219482b3a3e",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "vision|rich_text",
+              "textContent": "={{\n$json.revision_summary.legal.resolved_issues\n.map(i => `• ${i.issue_type} (${i.severity})\n\nSection: ${i.section}\nLocation: ${i.problem_location}\n\nSnippet:\n\"${i.snippet}\"\n\nIssue:\n${i.complaint_reason}\n\nWhy it matters:\n${i.why_this_is_a_problem}\n\nRevision instruction:\n${i.revision_instruction}`)\n.join(\"\\n\\n--------------------------------\\n\\n\")\n}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        4320,
+        3632
+      ],
+      "id": "7938dcb5-9f3c-4848-83bc-74b4b5ef8350",
+      "name": "Update a database page2",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "vision|rich_text",
+              "textContent": "={{ $json.revision_summary.legal.resolved_issues .map(i => `• ${i.issue_type} (${i.severity})  Section: ${i.section} Location: ${i.problem_location}  Snippet: \"${i.snippet}\"  Issue: ${i.complaint_reason}  Why it matters: ${i.why_this_is_a_problem}  Revision instruction: ${i.revision_instruction}`) .join(\"\\n\\n--------------------------------\\n\\n\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        4304,
+        3312
+      ],
+      "id": "09869b09-cea6-4a32-a9e2-298eeef78763",
+      "name": "Update a database page3",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        5056,
+        3216
+      ],
+      "id": "8bd5f9c5-4713-44c3-9625-3a546747f03c",
+      "name": "Merge5"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_NOTION_ID",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        5488,
+        1296
+      ],
+      "id": "1e9bead6-feae-473b-9ee8-f71128db1ae8",
+      "name": "Get a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a decision engine used inside a content automation workflow.\n\nYour job is to determine which communication techniques should be used based strictly on the provided matrix.\n\nINPUTS\nAudience: {{ $json.property_audience }}\nTopic: {{ $json.name }}\n\nTASK\n1. Read the Audience and Topic.\n2. Use the matrix provided below to determine which communication techniques apply.\n3. The matrix already covers every possible case. Do NOT invent new techniques.\n4. If multiple audiences or topics are provided, evaluate ALL combinations.\n5. Collect every technique required across all matching combinations.\n6. Remove duplicate techniques.\n7. Return the final list.\n\nIMPORTANT RULES\n- Use ONLY techniques that appear in the matrix.\n- Do NOT create new techniques.\n- Do NOT explain your reasoning.\n- Do NOT repeat techniques.\n- Combine all matching techniques into one final list.\n\nOUTPUT FORMAT\nReturn ONLY the techniques separated by commas.\n\nExample output:\nPyramid, AIDA, SOAR, FAB\n\nMATRIX\n\nOwner / Developer\n\nRisk & ROI\nPyramid, AIDA, SOAR, BAR, SCQA, FAB\n\nGreen Building / LEED\nFAB, AIDA, SOAR, BAR, Pyramid\n\nContract & Procurement\nPyramid, PAS, SCQA, 5W1H\n\n\nStructural / MEP Engineer\n\nStandards & Compliance\nPEEL, 5W1H, BAR, SCQA\n\nCoordination & RFIs\nPREP, BAR, SOAR, 5W1H\n\nAI & Technology\nPEEL, FAB, SCQA\n\n\nArchitect / Designer\n\nDesign Intent Protection\nPREP, SOAR, BAR, SCQA\n\nSpec Writing & Submittals\nBAR, PEEL, 5W1H, PREP\n\n\nGeneral Contractor\n\nCost & Change Management\nBAR, PAS, SOAR, FAB, PREP\n\nSubcontractor Management\nAIDA, PAS, 5W1H, SOAR, SCQA\n\nSchedule & Claims\nPAS, BAR, SOAR, 5W1H, Pyramid, PREP\n\n\nProject Manager / PMC\n\nProcess Frameworks\n5W1H, PREP, BAR, PEEL, SCQA\n\nStakeholder Communication\nSCQA, PREP, SOAR, BAR\n\nAI & Predictive PM\nAIDA, FAB, SCQA, Pyramid"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        5712,
+        1296
+      ],
+      "id": "99df8e2c-f04d-4f50-a7e7-a1bef262cbaf",
+      "name": "Message a model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "32cfb651-e7c8-4c43-8f0f-8986856ecc92",
+              "leftValue": "={{ $json.SCQA }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6336,
+        448
+      ],
+      "id": "c282ec8e-777b-4a83-9f72-ba32f5aebebe",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "10cea1b3-0c8e-47b3-ae07-a44127e56941",
+              "leftValue": "={{ $('decision making').item.json.PEEL }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6352,
+        672
+      ],
+      "id": "1e713967-d293-41cd-9f91-561cdb05c781",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "dccfcdf6-7a6c-42cc-bc2c-c6e200b25901",
+              "leftValue": "={{ $('decision making').item.json['5W1H'] }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6384,
+        896
+      ],
+      "id": "64e4e1fb-c144-49ca-babf-4c445771a504",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "dc45340b-9216-4e69-aea1-8dbdfa05fd6c",
+              "leftValue": "={{ $('decision making').item.json.SOAR }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6384,
+        1152
+      ],
+      "id": "93bf1924-f3c8-4766-be91-06dcb26d2d18",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6bb9f8ad-dd3c-4403-b627-04104028c7bd",
+              "leftValue": "={{ $('decision making').item.json.BAR }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6384,
+        1392
+      ],
+      "id": "dbfa2dd0-3c47-4313-9a9b-ac7a21937345",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "704e2a3c-622b-46df-9579-2183643772b2",
+              "leftValue": "={{ $('decision making').item.json.PAS }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6416,
+        1696
+      ],
+      "id": "1a36e480-7097-49ba-82f9-e35a2d24e33a",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3a8a7d5e-2774-4bf6-a0c2-97ed8f4f648a",
+              "leftValue": "={{ $('decision making').item.json.Pyramid }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6416,
+        1968
+      ],
+      "id": "397aeb58-fcf7-4b98-8921-7d30465cdaf8",
+      "name": "If7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4fd6a930-7277-427a-bf05-ab8aba833854",
+              "leftValue": "={{ $('decision making').item.json.PREP }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6416,
+        2224
+      ],
+      "id": "e7ed741c-e93f-40be-a5a5-c07f1418e7c8",
+      "name": "If8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9d53decd-8fe7-42de-86bf-ea4f8feb0be1",
+              "leftValue": "={{ $('decision making').item.json.FAB }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6416,
+        2432
+      ],
+      "id": "dca79b6e-b51d-4137-8eea-22d7ad766d54",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d35050f6-ba1b-4ba9-8fa9-8820e22b61a6",
+              "leftValue": "={{ $('decision making').item.json.AIDA }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6400,
+        2656
+      ],
+      "id": "b944df76-0afb-4371-9c75-80281016e38d",
+      "name": "If10"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert strategic communicator and insight-driven editor.\n\nYour task is to transform the input into the SOAR framework:\n- Situation\n- Obstacle\n- Action\n- Result\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Read the full input carefully and identify:\n   - the current situation or operating reality,\n   - the main obstacle, friction, inefficiency, or risk,\n   - the action, framework, response, or recommendation proposed,\n   - the result, outcome, or expected impact supported by the source.\n2. Rewrite the content clearly using the SOAR structure.\n3. Preserve the original meaning, numbers, evidence, examples, and stakeholder implications.\n4. Do not invent facts, ROI, or outcomes that are not supported by the input.\n5. If results are not explicitly confirmed in the source, present them as expected, likely, or projected outcomes rather than guaranteed facts.\n6. Keep the tone professional, strategic, and practical.\n7. Make the structure useful for business audiences, decision-makers, project teams, or technical stakeholders.\n8. Emphasize risk, operational consequences, and value creation where relevant.\n9. If the input is long, synthesize it without losing the core argument or supporting evidence.\n10. End with a concise takeaway that reinforces why the action matters.\n11. Target approximately 220 words total for the full output.\n\nOUTPUT FORMAT:\n# SOAR VERSION\n\n## Situation\n[Describe the current environment, baseline condition, or business reality.]\n\n## Obstacle\n[Explain the key problem, constraint, inefficiency, or risk.]\n\n## Action\n[Describe the solution, intervention, framework, or recommended response.]\n\n## Result\n[State the actual or source-supported expected outcome, improvement, or strategic effect.]\n\n## Bottom Line\n[2–4 sentence executive takeaway]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6544,
+        1088
+      ],
+      "id": "e8dd1580-fcba-4a9f-a057-bd2cc6252860",
+      "name": "SOAR",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert persuasive marketer and thought-leadership editor.\n\nYour task is to rewrite the input using AIDA:\n- Attention\n- Interest\n- Desire\n- Action\n\nINPUT:\n{{ $('Precaution Variables').item.json.article_text }}\n\nINSTRUCTIONS:\n1. Capture the strongest hook, pain point, or surprising fact from the source in the Attention section.\n2. Build Interest by explaining the issue clearly with evidence and context.\n3. Build Desire by showing the practical value of solving the problem or adopting the proposed approach.\n4. End with a strong Action that tells the reader what to think, evaluate, or do next.\n5. Preserve the source’s facts, numbers, examples, and references when useful.\n6. Do not overhype or invent unsupported ROI.\n7. Keep the tone persuasive, sharp, and suitable for B2B audiences.\n8. Make the output feel like a compelling business narrative, not just a summary.\n\nOUTPUT FORMAT:\n# AIDA VERSION\n\n## Attention\n[Strong opening hook]\n\n## Interest\n[Explain the problem and why it matters]\n\n## Desire\n[Show why the solution, framework, or change is valuable]\n\n## Action\n[Give a concrete next step, CTA, or executive decision prompt]"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6592,
+        2640
+      ],
+      "id": "9da477b0-a5ab-47e0-8ca6-84c58c565f0e",
+      "name": "AIDA",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6944,
+        432
+      ],
+      "id": "08cd9ad2-b205-43f1-ba26-657dc52e2275",
+      "name": "SCQA Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6944,
+        624
+      ],
+      "id": "16fa0b8d-6782-482e-b94f-f733cf31fe31",
+      "name": "PEEL Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6976,
+        880
+      ],
+      "id": "dc95b006-88bd-4045-8989-d8aa79210db4",
+      "name": "5W1H Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6976,
+        1088
+      ],
+      "id": "a1caa3d9-6db6-4854-929e-7e7660c44ee4",
+      "name": "SOAR Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6944,
+        1376
+      ],
+      "id": "677f0823-11ef-4123-8850-9073678849e2",
+      "name": "BAR Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6944,
+        1680
+      ],
+      "id": "41e3f6b7-99a4-48fd-be7c-10ddb527c4b7",
+      "name": "PAS Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6944,
+        1952
+      ],
+      "id": "94d9a8af-d91e-461b-9b17-8e4bb5cbf88f",
+      "name": "Pyramid Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6928,
+        2208
+      ],
+      "id": "ead090a7-cc17-4168-83ed-6eea1ef7084c",
+      "name": "PREP Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6960,
+        2416
+      ],
+      "id": "e6a38e44-37ce-4a4f-8060-3ea8d9f8e73f",
+      "name": "FAB Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json?.output?.[0]?.content?.[0]?.text ||\n    item.json?.content?.[0]?.text ||\n    item.json?.text ||\n    \"\";\n\n  const cleanedText = String(rawText)\n    .replace(/\\r\\n/g, \"\\n\")\n    .replace(/[ \\t]+\\n/g, \"\\n\")\n    .replace(/\\n{3,}/g, \"\\n\\n\")\n    .trim();\n\n  const titleMatch = cleanedText.match(/^#\\s*(.+)$/m);\n  const title = titleMatch ? titleMatch[1].trim() : \"\";\n\n  let technique = \"\";\n  if (/SCQA/i.test(title)) technique = \"SCQA\";\n  else if (/PEEL/i.test(title)) technique = \"PEEL\";\n  else if (/5W1H/i.test(title)) technique = \"5W1H\";\n  else if (/SOAR/i.test(title)) technique = \"SOAR\";\n  else if (/CAR/i.test(title)) technique = \"CAR\";\n  else if (/BAR/i.test(title)) technique = \"BAR\";\n  else if (/PAS/i.test(title)) technique = \"PAS\";\n  else if (/Pyramid/i.test(title)) technique = \"Pyramid\";\n  else if (/PREP/i.test(title)) technique = \"PREP\";\n  else if (/FAB/i.test(title)) technique = \"FAB\";\n  else if (/AIDA/i.test(title)) technique = \"AIDA\";\n\n  const body = cleanedText\n    .replace(/^#\\s*.+$/m, \"\")\n    .trim();\n\n  return {\n    json: {\n      technique,\n      title,\n      cleaned_text: cleanedText,\n      body,\n      raw_text: rawText\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6960,
+        2640
+      ],
+      "id": "a5ae55c3-7da3-4f72-bae0-6cc1076e0551",
+      "name": "AIDA Clean"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "list",
+          "cachedResultName": "communication techniques"
+        },
+        "title": "={{ $json.article_title }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        5264,
+        1296
+      ],
+      "id": "5ff0764f-4c55-404c-9f33-f6511d4990c8",
+      "name": "Create a database page1",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "5W1H|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7136,
+        880
+      ],
+      "id": "6a8c22f9-ffa6-46ae-827b-74cb904e8688",
+      "name": "Update a database page6",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "SOAR|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7136,
+        1088
+      ],
+      "id": "c658d44e-5356-4028-b992-89fe697e30f9",
+      "name": "SOAR Update",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "BAR|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7136,
+        1376
+      ],
+      "id": "f40f1fca-11d0-4e8a-bf93-2c24ec7eb4f1",
+      "name": "Update a database page7",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "PAS|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7152,
+        1680
+      ],
+      "id": "ce491d04-495e-4fd1-bcf6-8e661c7a47d0",
+      "name": "Update a database page8",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Pyramid|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7152,
+        1952
+      ],
+      "id": "2c679f98-6c9f-42d1-bff7-b07b5d5f1995",
+      "name": "Update a database page9",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "PAS|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7168,
+        2208
+      ],
+      "id": "3999e099-a6b1-4faf-95cd-ff792abb1385",
+      "name": "Update a database page10",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "FAB|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7184,
+        2416
+      ],
+      "id": "81ea8d36-2b01-4b63-b5c1-cee3dd3d8852",
+      "name": "Update a database page11",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "AIDA|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7168,
+        2640
+      ],
+      "id": "3af8b60d-7c4c-4ae5-ba93-bdb7591440ca",
+      "name": "Update a database page12",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "SCQA|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7120,
+        432
+      ],
+      "id": "f331f128-ba89-4f4b-9006-ea886537226b",
+      "name": "Update a database page13",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "PAS|rich_text",
+              "textContent": "={{ $json.cleaned_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7136,
+        624
+      ],
+      "id": "a1f5f2da-85cb-4700-bd41-371ead6f758e",
+      "name": "Update a database page14",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "YOUR_NOTION_ID",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7648,
+        1536
+      ],
+      "id": "45ca980b-94ba-428e-bd00-feb5a190e2d7",
+      "name": "Get a database page1",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const itemsIn = $input.all();\n\nreturn itemsIn.map((item, index) => {\n  let row = {};\n  try {\n    // item.json is the outer array, so grab index [0] first\n    const entry = Array.isArray(item.json) ? item.json[0] : item.json;\n    const rawText = entry?.output?.[0]?.content?.[0]?.text || \"{}\";\n    row = JSON.parse(rawText);\n  } catch (error) {\n    row = {};\n  }\n\n  return {\n    json: {\n      row_number: index + 1,\n      audience:       row.audience_match || \"\",\n      topic_category: row.topic_match    || \"\",\n      linkedin:       row.linkedin       || \"\",\n      youtube:        row.youtube        || \"\",\n      meta:           row.meta           || \"\",\n      x:              row.x              || \"\",\n      blog:           row.blog           || \"\",\n      podcast:        row.podcast        || \"\"\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8320,
+        1536
+      ],
+      "id": "41ddead6-9811-4052-8c90-a82ec04bb76b",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a communication-technique routing engine.\n\nYour job is to take an input topic and audience, map that topic to the closest topic category in the communication matrix, and then return the PRIMARY communication technique for each of these 6 platform sections:\n\n1. LinkedIn\n2. YouTube\n3. Meta\n4. X / Twitter\n5. Blog\n6. Podcast\n\nYou must return exactly ONE primary technique per section.\n\n--------------------------------\nINPUTS\n--------------------------------\nAudience: {{ $('Merge4').item.json.property_audience }}\nTopic: {{ $json.name }}\n\n--------------------------------\nTASK\n--------------------------------\nStep 1: Normalize the audience.\nMap the provided audience to the closest allowed audience group:\n- owner → Owner / Developer\n- engineer → Structural / MEP Engineer\n- architect → Architect / Designer\n- gc → General Contractor\n- pm → Project Manager / PMC\n\nStep 2: Classify the input topic.\nMap the input topic to the SINGLE closest topic category within that audience.\nUse semantic matching, not exact keyword matching.\nEven if the topic is phrased differently, choose the closest category.\n\nStep 3: For that matched topic category, return the PRIMARY technique for each platform:\n- LinkedIn\n- YouTube\n- Meta\n- X\n- Blog\n- Podcast\n\nA primary technique is the one designated as primary in the matrix.\nReturn only one technique per platform.\n\n--------------------------------\nIMPORTANT RULES\n--------------------------------\n- First decide the audience group.\n- Then decide the closest topic category under that audience.\n- Then return exactly one primary technique for each of the 6 platforms.\n- Do not return supporting techniques.\n- Do not return multiple techniques for a platform.\n- Do not invent new topic categories.\n- Do not explain your reasoning.\n- Do not output anything outside the required JSON format.\n- If the topic is broad, ambiguous, or overlaps multiple categories, choose the SINGLE best-fit category.\n- Be decisive.\n\n--------------------------------\nTOPIC CATEGORIES AND PRIMARY TECHNIQUES\n--------------------------------\n\n[Owner / Developer]\n1. Risk & ROI\n- LinkedIn: Pyramid\n- YouTube: Pyramid\n- Meta: AIDA\n- X: PAS\n- Blog: Pyramid\n- Podcast: SCQA\n\n2. Green Building / LEED\n- LinkedIn: FAB\n- YouTube: SOAR\n- Meta: AIDA\n- X: FAB\n- Blog: Pyramid\n- Podcast: SOAR\n\n3. Contract & Procurement\n- LinkedIn: Pyramid\n- YouTube: SCQA\n- Meta: PAS\n- X: PAS\n- Blog: Pyramid\n- Podcast: SCQA\n\n\n[Structural / MEP Engineer]\n1. Standards & Compliance\n- LinkedIn: PEEL\n- YouTube: PEEL\n- Meta: BAR\n- X: PEEL\n- Blog: PEEL\n- Podcast: SCQA\n\n2. Coordination & RFIs\n- LinkedIn: PREP\n- YouTube: SOAR\n- Meta: BAR\n- X: BAR\n- Blog: 5W1H\n- Podcast: PREP\n\n3. AI & Technology\n- LinkedIn: PEEL\n- YouTube: FAB\n- Meta: FAB\n- X: PEEL\n- Blog: PEEL\n- Podcast: SCQA\n\n\n[Architect / Designer]\n1. Design Intent Protection\n- LinkedIn: PREP\n- YouTube: PREP\n- Meta: BAR\n- X: PREP\n- Blog: PREP\n- Podcast: PREP\n\n2. Spec Writing & Submittals\n- LinkedIn: BAR\n- YouTube: 5W1H\n- Meta: BAR\n- X: BAR\n- Blog: 5W1H\n- Podcast: PREP\n\n\n[General Contractor]\n1. Cost & Change Management\n- LinkedIn: BAR\n- YouTube: BAR\n- Meta: PAS\n- X: PAS\n- Blog: BAR\n- Podcast: PREP\n\n2. Subcontractor Management\n- LinkedIn: AIDA\n- YouTube: 5W1H\n- Meta: PAS\n- X: PAS\n- Blog: 5W1H\n- Podcast: SCQA\n\n3. Schedule & Claims\n- LinkedIn: PAS\n- YouTube: SOAR\n- Meta: BAR\n- X: PAS\n- Blog: SOAR\n- Podcast: PREP\n\n\n[Project Manager / PMC]\n1. Process Frameworks\n- LinkedIn: 5W1H\n- YouTube: 5W1H\n- Meta: BAR\n- X: 5W1H\n- Blog: 5W1H\n- Podcast: SCQA\n\n2. Stakeholder Communication\n- LinkedIn: SCQA\n- YouTube: SCQA\n- Meta: BAR\n- X: SCQA\n- Blog: SCQA\n- Podcast: PREP\n\n3. AI & Predictive PM\n- LinkedIn: AIDA\n- YouTube: FAB\n- Meta: AIDA\n- X: AIDA\n- Blog: FAB\n- Podcast: SCQA\n\n--------------------------------\nOUTPUT FORMAT\n--------------------------------\nReturn ONLY this JSON object:\n\n{\n  \"audience_match\": \"matched audience group\",\n  \"topic_match\": \"matched topic category\",\n  \"linkedin\": \"PRIMARY technique only\",\n  \"youtube\": \"PRIMARY technique only\",\n  \"meta\": \"PRIMARY technique only\",\n  \"x\": \"PRIMARY technique only\",\n  \"blog\": \"PRIMARY technique only\",\n  \"podcast\": \"PRIMARY technique only\"\n}\n\n--------------------------------\nEXAMPLE\n--------------------------------\nInput:\nAudience: gc\nTopic: cost overruns, margin erosion, change order disputes, and budget control\n\nOutput:\n{\n  \"audience_match\": \"General Contractor\",\n  \"topic_match\": \"Cost & Change Management\",\n  \"linkedin\": \"BAR\",\n  \"youtube\": \"BAR\",\n  \"meta\": \"PAS\",\n  \"x\": \"PAS\",\n  \"blog\": \"BAR\",\n  \"podcast\": \"PREP\"\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        7936,
+        1536
+      ],
+      "id": "dbeb06d8-6238-4ea8-be94-8cbd4143d700",
+      "name": "Message a model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const matrix = $json; // your technique matrix\nconst notion = $items(\"Get a database page1\")[0].json;\n\nfunction getTechniqueContent(technique) {\n  if (!technique) return \"\";\n\n  const key = technique.toLowerCase().replace(/\\s/g, \"_\");\n\n  return notion[`property_${key}`] || \"\";\n}\n\nreturn [\n  {\n    json: {\n      linkedin_text: getTechniqueContent(matrix.linkedin),\n      youtube_text: getTechniqueContent(matrix.youtube),\n      meta_text: getTechniqueContent(matrix.meta),\n      x_text: getTechniqueContent(matrix.x),\n      blog_text: getTechniqueContent(matrix.blog),\n      podcast_text: getTechniqueContent(matrix.podcast)\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8896,
+        1392
+      ],
+      "id": "0700ab73-efc5-4498-8778-a366a223a0b7",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        13360,
+        1936
+      ],
+      "id": "25f30e78-0c63-419c-9159-32ea8a02c993",
+      "name": "Upload a video1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        13568,
+        1376
+      ],
+      "id": "4bdf5c26-0395-4032-a6f1-1cca63fe23cb",
+      "name": "Facebook Graph API1"
+    },
+    {
+      "parameters": {
+        "resource": "speech",
+        "voice": {
+          "__rl": true,
+          "mode": "list",
+          "value": "YOUR_ELEVEN_LABS_ID"
+        },
+        "additionalOptions": {},
+        "requestOptions": {}
+      },
+      "type": "@elevenlabs/n8n-nodes-elevenlabs.elevenLabs",
+      "typeVersion": 1,
+      "position": [
+        12400,
+        1920
+      ],
+      "id": "44d8aee7-afa9-4227-a3de-241827804fdf",
+      "name": "Convert text to speech"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.shotstack.io/edit/v1/render",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_API_KEY"
+            },
+            {
+              "name": "Content_Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"timeline\": {\n    \"background\": \"#FFFFFF\",\n    \"tracks\": [\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.WEB}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": \"45\",\n                \"lineHeight\": 1\n              },\n              \"width\": 600,\n              \"height\": 100,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 7.43,\n            \"length\": 3.5,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.13\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.CTA}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\",\n                \"family\": \"Montserrat ExtraBold\",\n                \"size\": \"110\",\n                \"lineHeight\": 1\n              },\n              \"width\": 800,\n              \"height\": 511\n            },\n            \"start\": 7.43,\n            \"length\": 3.5999999999999996,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": 0.032\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 20,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 7.37,\n            \"length\": 3.8000000000000007,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": 0.256\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 20,\n              \"background\": {\n                \"color\": \"#ffffff\"\n              }\n            },\n            \"start\": 7.33,\n            \"length\": 3.4000000000000004,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.256\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1200,\n              \"height\": 1150,\n              \"background\": {\n                \"color\": \"{{$json.BACKGROUND_COLOR}}\"\n              }\n            },\n            \"start\": 7.29,\n            \"length\": 3.9000000000000004,\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            },\n            \"position\": \"center\"\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 1920,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 7.23,\n            \"length\": 4,\n            \"transition\": {\n              \"in\": \"carouselLeft\"\n            },\n            \"position\": \"center\",\n            \"offset\": {\n              \"x\": 0.112,\n              \"y\": 0\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.S3_STORY}}\",\n              \"alignment\": {\n                \"horizontal\": \"left\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": \"40\",\n                \"lineHeight\": 1\n              },\n              \"width\": 900,\n              \"height\": 300\n            },\n            \"start\": 2.3,\n            \"length\": 5.22,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.343\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"out\": \"carouselLeft\",\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.S3_HEADLINE}}\",\n              \"alignment\": {\n                \"horizontal\": \"left\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\",\n                \"family\": \"Montserrat ExtraBold\",\n                \"size\": \"50\",\n                \"lineHeight\": 1\n              },\n              \"width\": 900,\n              \"height\": 255\n            },\n            \"start\": 2.54,\n            \"length\": 5.38,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.19\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.S3_NEWS_SECTOR}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": \"40\",\n                \"lineHeight\": 1\n              },\n              \"width\": 994,\n              \"height\": 146,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\"\n              }\n            },\n            \"start\": 2.38,\n            \"length\": 5.63,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.067\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"length\": 5.1,\n            \"asset\": {\n              \"type\": \"video\",\n              \"src\": \"{{ $json.S3_MEDIA }}\"\n            },\n            \"start\": 2.59,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": 0.242\n            },\n            \"scale\": 0.316,\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 1920,\n              \"background\": {\n                \"color\": \"#f4c60b\"\n              }\n            },\n            \"start\": 2.4,\n            \"length\": 5.4,\n            \"position\": \"center\",\n            \"offset\": {\n              \"x\": 0.003,\n              \"y\": 0.49\n            },\n            \"transition\": {\n              \"out\": \"carouselLeft\",\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 20,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 2.35,\n            \"length\": 5.29,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.475\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"out\": \"carouselLeft\",\n              \"in\": \"carouselLeft\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.WEB}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": \"45\",\n                \"lineHeight\": 1\n              },\n              \"width\": 600,\n              \"height\": 72,\n              \"background\": {\n                \"borderRadius\": 0\n              }\n            },\n            \"start\": 0.48,\n            \"length\": 2.15,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.396\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselUp\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.S1_SLUG_2}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat ExtraBold\",\n                \"size\": \"70\",\n                \"lineHeight\": 1\n              },\n              \"width\": 966,\n              \"height\": 400,\n              \"background\": {\n                \"color\": \"#ffffff\"\n              }\n            },\n            \"start\": 0.28,\n            \"length\": 2.2,\n            \"offset\": {\n              \"x\": 0.005,\n              \"y\": -0.073\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselUp\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"{{$json.S1_SLUG_1}}\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\",\n                \"family\": \"Montserrat ExtraBold\",\n                \"size\": \"70\",\n                \"lineHeight\": 1\n              },\n              \"width\": 964,\n              \"height\": 400,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_2}}\"\n              }\n            },\n            \"start\": 0.2,\n            \"length\": 2.2,\n            \"offset\": {\n              \"x\": 0.005,\n              \"y\": 0.135\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselLeft\",\n              \"out\": \"carouselUp\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 20,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 0.4,\n            \"length\": 2.2,\n            \"offset\": {\n              \"x\": 0,\n              \"y\": -0.311\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"out\": \"carouselUp\",\n              \"in\": \"carouselRight\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1200,\n              \"height\": 990,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 0.1,\n            \"length\": 2.2,\n            \"transition\": {\n              \"out\": \"carouselUp\",\n              \"in\": \"carouselRight\"\n            },\n            \"position\": \"center\"\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 20,\n              \"background\": {\n                \"color\": \"{{$json.FONT_COLOR_1}}\"\n              }\n            },\n            \"start\": 0,\n            \"length\": 2.2,\n            \"offset\": {\n              \"x\": -1,\n              \"y\": 0.311\n            },\n            \"position\": \"center\",\n            \"transition\": {\n              \"in\": \"carouselRight\",\n              \"out\": \"carouselUp\"\n            }\n          }\n        ]\n      },\n      {\n        \"clips\": [\n          {\n            \"asset\": {\n              \"type\": \"text\",\n              \"text\": \"\",\n              \"alignment\": {\n                \"horizontal\": \"center\",\n                \"vertical\": \"center\"\n              },\n              \"font\": {\n                \"color\": \"#000000\",\n                \"family\": \"Montserrat SemiBold\",\n                \"size\": 24,\n                \"lineHeight\": 1\n              },\n              \"width\": 1080,\n              \"height\": 1920,\n              \"background\": {\n                \"color\": \"{{$json.BACKGROUND_COLOR}}\"\n              }\n            },\n            \"start\": 0,\n            \"length\": 2.6,\n            \"position\": \"center\",\n            \"transition\": {\n              \"out\": \"carouselUp\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"output\": {\n    \"format\": \"mp4\",\n    \"fps\": 25,\n    \"size\": {\n      \"width\": 1080,\n      \"height\": 1920\n    }\n  },\n  \"merge\": [\n    {\n      \"find\": \"S1_SLUG_1\",\n      \"replace\": \"{{$json.S1_SLUG_1}}\"\n    },\n    {\n      \"find\": \"S1_SLUG_2\",\n      \"replace\": \"{{$json.S1_SLUG_2}}\"\n    },\n    {\n      \"find\": \"WEB\",\n      \"replace\": \"{{$json.WEB}}\"\n    },\n    {\n      \"find\": \"S2_SLUG_1\",\n      \"replace\": \"{{$json.S2_SLUG_1}}\"\n    },\n    {\n      \"find\": \"S2_SLUG_2\",\n      \"replace\": \"{{$json.S2_SLUG_2}}\"\n    },\n    {\n      \"find\": \"S3_NEWS_SECTOR\",\n      \"replace\": \"{{$json.S3_NEWS_SECTOR}}\"\n    },\n    {\n      \"find\": \"S3_HEADLINE\",\n      \"replace\": \"{{$json.S3_HEADLINE}}\"\n    },\n    {\n      \"find\": \"S3_STORY\",\n      \"replace\": \"{{$json.S3_STORY}}\"\n    },\n    {\n      \"find\": \"S3_VIDEO\",\n      \"replace\": \"{{ $json.S3_MEDIA }}\"\n    },\n    {\n      \"find\": \"CTA\",\n      \"replace\": \"{{$json.CTA}}\"\n    },\n    {\n      \"find\": \"FONT_COLOR_1\",\n      \"replace\": \"{{$json.FONT_COLOR_1}}\"\n    },\n    {\n      \"find\": \"FONT_COLOR_2\",\n      \"replace\": \"{{$json.FONT_COLOR_2}}\"\n    },\n    {\n      \"find\": \"BACKGROUND_COLOR\",\n      \"replace\": \"{{$json.BACKGROUND_COLOR}}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        11936,
+        2320
+      ],
+      "id": "0c784ed5-1c80-41bc-818d-6e8c8d019a2b",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.shotstack.io/v1/render/{{ $json.response.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_API_KEY"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        12352,
+        2320
+      ],
+      "id": "75a53aa6-c387-4c7c-b894-9a1c70313efe",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        12176,
+        2320
+      ],
+      "id": "61a477ff-ce63-4aea-8cd6-175e430f5a73",
+      "name": "Wait"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Give me a 20-25 word summary of the following I can put on a quick informational video about the following\n\n{{ $('Code in JavaScript2').item.json.meta_text }}\n\nShape it for the following Audience: {{ $('Get a database page').item.json.property_audience }}\n\nDo it in a way that it'll be ready to be taken in and posted\n\nOutput should only have text, dont put any extra filler words, only the output."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        10960,
+        2336
+      ],
+      "id": "ef26c7a5-65ea-4ac0-a42c-0c8f52f61305",
+      "name": "voiceover text",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Create a video title for the following text\n{{ $json.x_text }}\nThis will be a post created so generate me a short title encapsulating the entire thing\n\nOnly output the title\n\nThe output should be 2, 3 or 4 words"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        10176,
+        2336
+      ],
+      "id": "726b682c-2e73-4a83-bf45-453d4961a94e",
+      "name": "title",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  const data = item.json;\n  \n  // Handle if output is nested under a key or is the root object\n  const outputArray = data.output ?? (Array.isArray(data) ? data : [data]);\n  \n  for (const msg of outputArray) {\n    for (const content of msg.content ?? []) {\n      if (content.type === \"output_text\") {\n        results.push({\n          json: {\n            text: content.text.replace(/^\\\"|\\\"$/g, \"\").trim()\n          }\n        });\n      }\n    }\n  }\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10544,
+        2336
+      ],
+      "id": "a246b6a0-236e-43ad-b61a-68914d8a415e",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  const data = item.json;\n  \n  // Handle if output is nested under a key or is the root object\n  const outputArray = data.output ?? (Array.isArray(data) ? data : [data]);\n  \n  for (const msg of outputArray) {\n    for (const content of msg.content ?? []) {\n      if (content.type === \"output_text\") {\n        results.push({\n          json: {\n            text: content.text.replace(/^\\\"|\\\"$/g, \"\").trim()\n          }\n        });\n      }\n    }\n  }\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11312,
+        2336
+      ],
+      "id": "44e9d121-45ac-42b1-8b71-d78a8978ef74",
+      "name": "Code in JavaScript4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => {\n  const text = (item.json.text || \"\").trim();\n  const words = text ? text.split(/\\s+/) : [];\n\n  let first_line = \"\";\n  let second_line = \"\";\n\n  if (words.length === 2) {\n    first_line = words[0];\n    second_line = words[1];\n  } else if (words.length === 3) {\n    first_line = words.slice(0, 2).join(\" \");\n    second_line = words[2];\n  } else if (words.length === 4) {\n    first_line = words.slice(0, 2).join(\" \");\n    second_line = words.slice(2, 4).join(\" \");\n  }\n\n  return {\n    json: {\n      ...item.json,\n      first_line,\n      second_line\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10736,
+        2336
+      ],
+      "id": "a702c829-7024-462d-81b1-7ba9053abcd8",
+      "name": "Code in JavaScript7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6789cdf4-6150-4293-9180-9e4a4c9d71b3",
+              "name": "S1_SLUG_1",
+              "value": "={{ $('Code in JavaScript7').item.json.first_line }}",
+              "type": "string"
+            },
+            {
+              "id": "e3e32082-93e5-4127-bbef-5df5ddcd98c8",
+              "name": "S1_SLUG_2",
+              "value": "={{ $('Code in JavaScript7').item.json.second_line }}",
+              "type": "string"
+            },
+            {
+              "id": "4361561d-56c6-4069-8486-c2470b6117c4",
+              "name": "S2_SLUG_1",
+              "value": "={{ $('Code in JavaScript7').item.json.first_line }}",
+              "type": "string"
+            },
+            {
+              "id": "b50be0f2-ecf8-473d-b735-b901ed7d31f9",
+              "name": "S2_SLUG_2",
+              "value": "={{ $('Code in JavaScript7').item.json.second_line }}",
+              "type": "string"
+            },
+            {
+              "id": "ffdaa2c1-bb8a-4bd5-9e91-1e978e8a622e",
+              "name": "BRAND_TEXT",
+              "value": "xpmsolution.com",
+              "type": "string"
+            },
+            {
+              "id": "bb86cc5f-dc29-4c05-9a79-53927d9c2d46",
+              "name": "logo_url",
+              "value": "https://www.xpmsolution.com/images/xpm-footer-logo.jpg",
+              "type": "string"
+            },
+            {
+              "id": "1867dfb8-4318-4bf1-ad04-a3ec822a4587",
+              "name": "S3_NEWS_SECTOR",
+              "value": "={{ $('Code in JavaScript1').item.json.topic_category }} News for {{ $('Code in JavaScript1').item.json.audience }}s",
+              "type": "string"
+            },
+            {
+              "id": "03191bed-982c-43f4-94a2-5e1b7d88c853",
+              "name": "S3_HEADLINE",
+              "value": "={{ $('Code in JavaScript3').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "cdcbe021-7f49-4838-ab13-d409d7c8e30c",
+              "name": "S3_STORY",
+              "value": "={{ $('Code in JavaScript4').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "b3c710cf-7ca6-47fb-bf85-3cbbaba320bb",
+              "name": "CTA",
+              "value": "Check Out Our Blogs For More",
+              "type": "string"
+            },
+            {
+              "id": "705522ce-f19a-4328-b072-b29650f194e5",
+              "name": "FONT_COLOR_1",
+              "value": "#ffffff",
+              "type": "string"
+            },
+            {
+              "id": "5b664471-e277-4d57-950a-921a94ea7ba8",
+              "name": "FONT_COLOR_2",
+              "value": "#002663",
+              "type": "string"
+            },
+            {
+              "id": "0eb517b0-70c7-4066-9f44-c4864ee03b5f",
+              "name": "BACKGROUND_COLOR",
+              "value": "#616266",
+              "type": "string"
+            },
+            {
+              "id": "57127d3f-ebdc-4048-ae7e-090398665b8d",
+              "name": "S3_MEDIA",
+              "value": "https://templates.shotstack.io/agricultural-news-transport-update-farm-logistics-trucks/YOUR_ID/source.mp4",
+              "type": "string"
+            },
+            {
+              "id": "4a187ff4-7e47-442f-a70a-2b611b308558",
+              "name": "WEB",
+              "value": "xpmsolution.com",
+              "type": "string"
+            },
+            {
+              "id": "faa7cde4-b468-4e72-867b-23ac835a190f",
+              "name": "PICTURE_USED",
+              "value": "=https://templates.shotstack.io/agricultural-news-transport-update-farm-logistics-trucks/YOUR_ID/source.mp4",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        11568,
+        2336
+      ],
+      "id": "ab5a8fae-308e-43aa-bb99-0eb1d0a993cd",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0afb2040-9ec3-4362-b159-26ceb0ae15e8",
+              "name": "Branding_Video",
+              "value": "={{ $json.response.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        12544,
+        2320
+      ],
+      "id": "9c1ebbc9-9315-49e4-ab80-0697094576f7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.Branding_Video }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        12752,
+        2320
+      ],
+      "id": "1ad482b0-851c-4c5d-94a1-2a71c2654de8",
+      "name": "download video"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert LinkedIn content strategist specializing in professional B2B posts.\n\nYour task is to transform the provided structured content into a high-performing LinkedIn post.\n\nINPUT:{{ $json.linkedin_text }}\n\n\nINSTRUCTIONS:\n\n1. Convert the input into a clear, engaging LinkedIn post between **150–220 words**.\n2. Write for a **professional audience (executives, managers, industry professionals)**.\n3. Start with a **strong hook in the first 1–2 lines** that stops scrolling.\n4. Use **short sentences and line breaks** to make the post easy to read on mobile.\n5. Highlight **key statistics, numbers, and insights** from the source text.\n6. Keep the language **direct, professional, and authoritative**.\n7. Do NOT mention the frameworks used in the input (PAS, SCQA, etc.).\n8. Do NOT invent new facts — only use information present in the source.\n9. Turn the information into a **clear narrative that flows naturally**.\n10. End the post with:\n   - A **strong takeaway**\n   - A **question to encourage engagement**\n11. Add **4–6 relevant LinkedIn hashtags** at the end.\n\nSTYLE GUIDELINES:\n- Write like a professional industry expert.\n- Avoid emojis.\n- Avoid excessive formatting.\n- Prioritize clarity and impact.\n\nOUTPUT FORMAT:\n\nReturn ONLY the LinkedIn post text exactly as it should be published.\nDo not include explanations, titles, or metadata."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        12640,
+        944
+      ],
+      "id": "d37d353e-2dd3-4572-81c5-473707eaf4e6",
+      "name": "LinkedIn Content Prompter",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert X (Twitter) content strategist specializing in high-impact, concise posts.\n\nYour task is to transform the provided structured content into a high-performing X post.\n\nINPUT:\n{{ $json.x_text }}\n\nINSTRUCTIONS:\n\nConvert the input into a clear, concise post under 280 characters.\n\nStart with a strong hook in the first sentence.\n\nFocus on one key insight or statistic from the input.\n\nKeep language sharp, direct, and attention-grabbing.\n\nUse tight phrasing — no fluff.\n\nMaintain a professional but punchy tone.\n\nDo NOT mention frameworks (PAS, SCQA, etc.).\n\nDo NOT invent new facts.\n\nIf helpful, use one short line break for readability.\n\nEnd with:\n\nA thought-provoking question OR strong statement\n\nInclude 2–4 relevant hashtags.\n\nOUTPUT FORMAT:\n\nReturn ONLY the X post text exactly as it should be published."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        12640,
+        1168
+      ],
+      "id": "73d16d96-8df9-4c8b-a709-2f20e127db7b",
+      "name": "X Content Prompter",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "YOUR_NOTION_ID"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        12672,
+        1744
+      ],
+      "id": "ae99dffa-cddc-4e4a-b10c-87de3e07aac2",
+      "name": "Blog Updater",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "YOUR_notionApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        13360,
+        944
+      ],
+      "id": "ee172962-6140-4af3-a93e-ab3b901139a6",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        13360,
+        1152
+      ],
+      "id": "1b5a5f2d-ada3-4acf-a7bd-6fddbef5743d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        13360,
+        1376
+      ],
+      "id": "3bce5dfd-7588-41c9-8e31-c5fed785f316",
+      "name": "Merge6"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        13360,
+        1744
+      ],
+      "id": "ee7be0d0-6e58-4d61-8997-ad0debd88ab6",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert Facebook content strategist specializing in engaging professional and business content.\n\nYour task is to transform the provided structured content into a high-performing Facebook post.\n\nINPUT:\n{{ $json.meta_text }}\n\nINSTRUCTIONS:\n\nConvert the input into a 150–250 word Facebook post.\n\nStart with a strong hook that sparks curiosity or highlights a problem.\n\nUse a conversational but still professional tone.\n\nBreak content into short paragraphs for readability.\n\nHighlight key stats, insights, or pain points clearly.\n\nMake the post feel relatable and discussion-driven.\n\nDo NOT mention frameworks.\n\nDo NOT invent new facts.\n\nBuild a clear narrative (problem → impact → insight/solution).\n\nEnd with:\n\nA clear takeaway\n\nA question to drive comments\n\nInclude 3–5 relevant hashtags.\n\nOUTPUT FORMAT:\n\nReturn ONLY the Facebook post text exactly as it should be published."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        12656,
+        1376
+      ],
+      "id": "264dbfd1-bc5e-4f88-a467-d2d129389a1e",
+      "name": "Facebook Content Prompter",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        13360,
+        1552
+      ],
+      "id": "df46d251-dd94-4189-a0ed-037855282986",
+      "name": "Merge7"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an expert Instagram content strategist specializing in educational and business content.\n\nYour task is to transform the provided structured content into a high-performing Instagram caption.\n\nINPUT:\n{{ $json.meta_text }}\n\nINSTRUCTIONS:\n\nConvert the input into a caption between 120–200 words.\n\nStart with a strong hook in the first line.\n\nUse short lines and spacing for mobile readability.\n\nFocus on clarity and visual flow.\n\nHighlight key stats and insights in a simple, digestible way.\n\nMaintain a professional but slightly more engaging tone than LinkedIn.\n\nDo NOT mention frameworks.\n\nDo NOT invent new facts.\n\nStructure the caption:\n\nHook\n\nProblem / Insight\n\nKey takeaway\n\nEnd with:\n\nA call to action (comment, share, or reflect)\n\nInclude 5–8 relevant hashtags.\n\nOUTPUT FORMAT:\n\nReturn ONLY the Instagram caption exactly as it should be published."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        12656,
+        1552
+      ],
+      "id": "3010dbd6-313f-42d8-8ae0-be85532ff4ca",
+      "name": "Instagram Content Prompter",
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "YOUR_openAiApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://upload.twitter.com/1.1/media/upload.json",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth1Api",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "media",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "additional_owners",
+              "value": "2027847174357454848"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        14080,
+        1152
+      ],
+      "id": "ce2ca8e3-d654-4113-b758-44059a9dbcc5",
+      "name": "upload media",
+      "credentials": {
+        "twitterOAuth1Api": {
+          "id": "",
+          "name": "YOUR_twitterOAuth1Api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.twitter.com/2/users/by/username/YOUR_X_HANDLE",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        13872,
+        1152
+      ],
+      "id": "d57761a1-ad13-4d91-b163-c3db741a7f67",
+      "name": "get credentials",
+      "credentials": {
+        "twitterOAuth1Api": {
+          "id": "",
+          "name": "YOUR_twitterOAuth1Api"
+        },
+        "twitterOAuth2Api": {
+          "id": "",
+          "name": "YOUR_twitterOAuth2Api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twitter.com/2/tweets",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        14272,
+        1152
+      ],
+      "id": "b3b20aec-18dc-463b-89a8-62b0773549f8",
+      "name": "POST",
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "",
+          "name": "YOUR_twitterOAuth2Api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Post-Update\n## Check w/ Alignment\n\n## This section uses specific communication techniques depending on the selected audience and platform to make the enhanced text more viable to that specific audience",
+        "height": 2704,
+        "width": 3216,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        5248,
+        224
+      ],
+      "typeVersion": 1,
+      "id": "12181beb-e76d-4713-83d7-124f7582e483",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "# Workflow Description\nTurning Articles/Blogs/etc. into Specific Audience Designated Social Media Posts\n\n## What's Done:\n1. Data Gatheration\n2. Article Enrichment via xPM Archives\n3. Article Enrichment via AI\n4. Article Enrichment via Vision, Ethics & Legalities\n5. Article Enrichment via Audience\n6. Using Communication Techniques to Word the article better depending on audience\n7. Short Video & Media Prompting\n8. Output\n\n\n## What's Being Worked On:\n1. Podcasts\n2. Adding audio to video\n3. Long (10-20 min) long videos\n4. \"Article Enrichment via xPM Archives\" Section\n5. \"Article Enrichment via Vision, Ethics & Legalities\" Section\n6. Option to add articles/blogs/etc. via files and urls \n\n",
+        "height": 1008,
+        "width": 1680
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3536,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "3ea1e4cc-8936-4460-91ef-c6616bd90e80",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.output[0].content[0].text }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        13584,
+        1152
+      ],
+      "id": "7f36aac1-05ab-44f6-a55f-05bc3e2abf61",
+      "name": "Create Tweet",
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "",
+          "name": "YOUR_twitterOAuth2Api"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Create Base Set Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Base Set Variables": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Clean Raw Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Raw Text": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get an item": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get shared drive": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "bypass?.2": {
+      "main": [
+        [
+          {
+            "node": "Message a model2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "problem?2": {
+      "main": [
+        [
+          {
+            "node": "t",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Ethical Revision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "problem?1": {
+      "main": [
+        [
+          {
+            "node": "t",
+            "type": "main",
+            "index": 2
+          }
+        ],
+        [
+          {
+            "node": "Legal Revision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "problem?": {
+      "main": [
+        [
+          {
+            "node": "t",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Brand & Vision Revision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "t": {
+      "main": [
+        []
+      ]
+    },
+    "decision making": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SCQA": {
+      "main": [
+        [
+          {
+            "node": "SCQA Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PEEL": {
+      "main": [
+        [
+          {
+            "node": "PEEL Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5W1H": {
+      "main": [
+        [
+          {
+            "node": "5W1H Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BAR": {
+      "main": [
+        [
+          {
+            "node": "BAR Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PAS": {
+      "main": [
+        [
+          {
+            "node": "PAS Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pyramid": {
+      "main": [
+        [
+          {
+            "node": "Pyramid Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PREP": {
+      "main": [
+        [
+          {
+            "node": "PREP Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FAB": {
+      "main": [
+        [
+          {
+            "node": "FAB Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages1": {
+      "main": [
+        [
+          {
+            "node": "Archive?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Archive?": {
+      "main": [
+        [
+          {
+            "node": "Get an item",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get shared drive",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "bypass?.2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "bypass?.2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean AI Output": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model2": {
+      "main": [
+        [
+          {
+            "node": "Clean AI Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand & Vision1": {
+      "main": [
+        [
+          {
+            "node": "clean1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ethical": {
+      "main": [
+        [
+          {
+            "node": "clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Legal": {
+      "main": [
+        [
+          {
+            "node": "clean2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Precaution Variables": {
+      "main": [
+        [
+          {
+            "node": "Create a database page1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Create a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean": {
+      "main": [
+        [
+          {
+            "node": "problem?2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean1": {
+      "main": [
+        [
+          {
+            "node": "problem?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean2": {
+      "main": [
+        [
+          {
+            "node": "problem?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brand & Vision Revision": {
+      "main": [
+        [
+          {
+            "node": "clean3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ethical Revision": {
+      "main": [
+        [
+          {
+            "node": "clean4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Legal Revision": {
+      "main": [
+        [
+          {
+            "node": "clean5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean3": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean4": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clean5": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "ethics revision",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "legal revision",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "vision revision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a database page": {
+      "main": [
+        [
+          {
+            "node": "Precaution Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ethics revision": {
+      "main": [
+        [
+          {
+            "node": "Update a database page1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "legal revision": {
+      "main": [
+        [
+          {
+            "node": "Update a database page3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vision revision": {
+      "main": [
+        [
+          {
+            "node": "Update a database page2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page3": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Update a database page2": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Update a database page1": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a database page": {
+      "main": [
+        [
+          {
+            "node": "Message a model3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model3": {
+      "main": [
+        [
+          {
+            "node": "decision making",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "SCQA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "PEEL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "5W1H",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "SOAR",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "BAR",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "PAS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If7": {
+      "main": [
+        [
+          {
+            "node": "Pyramid",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If8": {
+      "main": [
+        [
+          {
+            "node": "PREP",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "FAB",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If10": {
+      "main": [
+        [
+          {
+            "node": "AIDA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SOAR": {
+      "main": [
+        [
+          {
+            "node": "SOAR Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AIDA": {
+      "main": [
+        [
+          {
+            "node": "AIDA Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SCQA Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PEEL Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5W1H Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SOAR Clean": {
+      "main": [
+        [
+          {
+            "node": "SOAR Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BAR Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PAS Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pyramid Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PREP Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FAB Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AIDA Clean": {
+      "main": [
+        [
+          {
+            "node": "Update a database page12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a database page1": {
+      "main": [
+        [
+          {
+            "node": "Get a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page13": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page14": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page6": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SOAR Update": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page7": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page8": {
+      "main": [
+        [
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page9": {
+      "main": [
+        [
+          {
+            "node": "If8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page10": {
+      "main": [
+        [
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page11": {
+      "main": [
+        [
+          {
+            "node": "If10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page12": {
+      "main": [
+        [
+          {
+            "node": "Get a database page1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a database page1": {
+      "main": [
+        [
+          {
+            "node": "Message a model4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model4": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Content Prompter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "title",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "X Content Prompter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Facebook Content Prompter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Blog Updater",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Convert text to speech",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Instagram Content Prompter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "voiceover text": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "title": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript7": {
+      "main": [
+        [
+          {
+            "node": "voiceover text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "download video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Content Prompter": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "download video": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "X Content Prompter": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Create Tweet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge6": {
+      "main": [
+        [
+          {
+            "node": "Facebook Graph API1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Blog Updater": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert text to speech": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Facebook Content Prompter": {
+      "main": [
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Content Prompter": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get credentials": {
+      "main": [
+        [
+          {
+            "node": "upload media",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upload media": {
+      "main": [
+        [
+          {
+            "node": "POST",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST": {
+      "main": [
+        []
+      ]
+    },
+    "Create Tweet": {
+      "main": [
+        [
+          {
+            "node": "get credentials",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
